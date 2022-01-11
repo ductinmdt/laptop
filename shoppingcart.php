@@ -35,7 +35,7 @@
 						$id = $_GET['minus'];
 						for ($i = 0; $i < count($_SESSION['giohang']); $i++) {
 							if ($_SESSION['giohang'][$i]['id'] == $id) {
-								if($_SESSION['giohang'][$i]['soluong'] != 0){
+								if($_SESSION['giohang'][$i]['soluong'] != 1){
 									$_SESSION['giohang'][$i]['soluong'] = $_SESSION['giohang'][$i]['soluong'] - 1;
 									//$_SESSION['giohang'][$i]['soluong'] = $_SESSION['soluong'];
 								}
@@ -145,9 +145,7 @@
 										<input class="btn muahang" type="submit" name="order" value="Mua hàng"/>
 									</a>
 									<a onclick="return ConfirmDelete();" href = "del-cart.php">
-										<button class="btn muahang delete-cart">
-											<i class="bi bi-trash delete-cart "></i>
-										</button>
+										<input type="button" class="btn muahang delete-cart" value="Xóa" />
 									</a>
 									
 								</div>

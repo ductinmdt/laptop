@@ -39,11 +39,11 @@
 									<td for="inputEmail3" class=" col-form-label">Giới tính</td>
 									<td>
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="gender" value="male" >
+											<input class="form-check-input" type="radio" name="gender" value="Nam" >
 											<label class="form-check-label" style="line-height: 30px;" >Nam</label>
 										</div>
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="radio" name="gender" value="female" >
+											<input class="form-check-input" type="radio" name="gender" value="Nữ" >
 											<label class="form-check-label" style="line-height: 30px;" >Nữ</label>
 										</div>
 										<!-- <input class="form-check-input" type="radio" name="gender" value="male">Nam</input>

@@ -38,14 +38,14 @@
 										<td>Giới tính:</td>
 										<td>
 											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio" name="sex" value="male" <?php
-												if ($row['gender'] == 'male') {echo 'checked';} 
+												<input class="form-check-input" type="radio" name="sex" value="Nam" <?php
+												if ($row['gender'] == 'Nam') {echo 'checked';} 
 												else {echo '';} ?> />
 												<label class="form-check-label" for="inlineRadio1">Nam</label>
 											</div>
 											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio" name="sex" value="female" <?php
-												if ($row['gender'] == 'female') {echo 'checked';} 
+												<input class="form-check-input" type="radio" name="sex" value="Nữ" <?php
+												if ($row['gender'] == 'Nữ') {echo 'checked';} 
 												else {echo '';} ?> />
 												<label class="form-check-label" for="inlineRadio2">Nữ</label>
 											</div>
