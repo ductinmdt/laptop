@@ -3,7 +3,7 @@
 	include_once('conn.php');
 	if(isset($_POST['login']))
 	{
-		$user= mysqli_real_escape_string($con,$_POST['user']);
+		$user= mysqli_real_escape_string($con,$_POST['user']); //mysqli_real_escape_string kiểm tra kí tự đặt biệt
 		$pass= mysqli_real_escape_string($con,$_POST['pass']);
 		if($user== '' || $pass == '')
 		{
@@ -13,10 +13,10 @@
 		else
 		{
 			$sql='select * from users where username = "'.$user.'" and password = "'.$pass.'"';//var_dump($sql);exit;
-			$result=mysqli_query($con,$sql);//var_dump($result);exit;
-			if(mysqli_num_rows($result)>0)
+			$result=mysqli_query($con,$sql);//var_dump($result);exit; thực hiện truy vấn câu lệnh sql
+			if(mysqli_num_rows($result)>0) // mysqli_num_rows kiểm tra số hàng trong kết quả truy vấn
 			{
-				while($row=mysqli_fetch_assoc($result))
+				while($row=mysqli_fetch_assoc($result)) // mysqli_fetch_assoc trả về kiểu mãn cho từng cột
 				{
 					if($row['level']!=1)
 					{
@@ -34,7 +34,7 @@
 						$_SESSION['login']=$_POST['login'];
 			//			var_dump($_SESSION['email']);exit;
 						echo '<script language="javascript">alert("Xin chao Admin!");';
-						echo 'location.href="home.php";</script>';
+						echo 'location.href="admin.php";</script>';
 					}
 				}
 			}

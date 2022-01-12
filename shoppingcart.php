@@ -15,8 +15,6 @@
 					<h5>GIỎ HÀNG</h5>
 				</div>
 			</div>
-
-
 			<?php
 			include_once('conn.php');
 			$user = $_SESSION['user'];

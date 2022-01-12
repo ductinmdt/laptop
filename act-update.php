@@ -12,7 +12,7 @@
 		$update='update users set name = "'.$name.'", date_of_birth = "'.$date_of_birth.'", gender = "'.$gender.'", phone = "'.$phone.'", address = "'.$address.'", password= "'.$pass.'" where user_id = "'.$id.'"';
 		$result=mysqli_query($con,$update);
 		//var_dump($update);exit();
-		if(mysqli_affected_rows($con)>0) {
+		if(mysqli_affected_rows($con)>0) { // Lấy số lượng hàng bị ảnh hưởng trong một hoạt động MySQL trước đó
 			echo '<script language="javascript">alert("Thay đổi thông tin thành công!");';
 			echo 'location.href="update_profile.php?user_id='.$id.'";</script>';
 		}else {

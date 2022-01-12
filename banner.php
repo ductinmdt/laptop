@@ -88,13 +88,11 @@
 										<a href="javascript:void(0)" class="no-decoration " ><span> Đăng nhập</span></a>
 										<div class="shopping-item">
 												<div class="dropdown-cart-header">
-													
-															
-																<form action="act-dangnhap.php" method="POST">												
-																	<input type="text" name="user"  placeholder="Tài khoản" class="form-control" >			
-																	<input type="password" name="pass" placeholder="Mật khẩu"  class="form-control" style="margin-top: 5px;"/>			
-																	<input type="submit" name="login" value="Đăng nhập"  class="form-control" style="margin-top: 5px;"/>
-																</form>
+													<form action="act-dangnhap.php" method="POST">												
+														<input type="text" name="user"  placeholder="Tài khoản" class="form-control" >			
+														<input type="password" name="pass" placeholder="Mật khẩu"  class="form-control" style="margin-top: 5px;"/>			
+														<input type="submit" name="login" value="Đăng nhập"  class="form-control" style="margin-top: 5px;"/>
+													</form>
 													
 												</div>
 												
@@ -102,7 +100,7 @@
 									</div>
 									
 									<span> | </span>
-									<a href="./dkm.php" class="no-decoration" style="margin-top:2.2px"><span> Đăng ký</span></a>
+									<a href="./dangky.php" class="no-decoration" style="margin-top:2.2px"><span> Đăng ký</span></a>
 								
 								</div> </h5>
 								';
@@ -114,7 +112,6 @@
 						$result = mysqli_query($con, $sql);
 						if (mysqli_num_rows($result)) {
 							while ($row = mysqli_fetch_assoc($result)) {
-								if ($user != 'admin') {
 									echo '
 												<h5>  <a href="update_profile.php?user_id=' . $row['user_id'] . '" class="no-decoration" style="color: #fff;">TÀI KHOẢN</a> 
 													<div class="dn-dk">
@@ -135,9 +132,6 @@
 												
 													</div>
 												</h5>';
-								} else {
-									header('location:admin.php');
-								}
 							}
 						}
 					}
