@@ -42,7 +42,6 @@
 			<div class="row ">
 				<?php
 				include_once('conn.php');
-				$tim = "dell";
 				$select = '';
 				if (isset($_GET['tim'])) {
 					$select = 'select * from product where 1=1 ';

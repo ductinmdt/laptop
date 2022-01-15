@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html>
 <?php include_once('head.php');?>
-
 <body>
 	<?php include_once('banner.php'); ?>
-
 	<div class="section section-cart pd-top-20 bg-color-brown">
-
 		<div class="container">
-
-
 			<div class="row align-items-center justify-content-center">
 				<div class="col-lg-11 col-12 no-pd">
 					<h5>GIỎ HÀNG</h5>
@@ -50,10 +45,8 @@
 							}
 						}
 					}
-
 					$amount = 0;
 					for ($i = 0; $i < count($_SESSION['giohang']); $i++) {
-
 						$select = 'select * from product where product_id = "' . $_SESSION['giohang'][$i]['id'] . '"';
 						$result = mysqli_query($con, $select);
 						if (mysqli_num_rows($result) > 0) {
@@ -71,7 +64,7 @@
 						$result = mysqli_query($con, $select);
 						if (mysqli_num_rows($result) > 0) {
 							while ($row = mysqli_fetch_array($result)) {
-			?>
+								?>
 								<div class="row align-items-center justify-content-center">
 									<div class="col-12 flex-column-1 items-cart mg-bottom-20 bd-rd-5">
 										<table class="align-middle">
@@ -103,10 +96,7 @@
 										</table>
 									</div>
 								</div>
-
-
-			<?php
-
+								<?php
 							}
 						}
 					}

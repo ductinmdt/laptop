@@ -3,12 +3,12 @@
 	$catalog_name=$_POST['catalog_name'];
 
 	$target_dir = 'images/'.$catalog_name.'/';
-	$target_file = $target_dir . basename ($_FILES['image']['name']);
+	$target_file = $target_dir . basename ($_FILES['image']['name']); //Trả về thành phần tên theo sau của đường dẫn name la lay ten goc
 	//var_dump($_FILES['image']['name']);exit;
 	$uploadOk = 1;
-	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION); //Trả về thông tin về đường dẫn tệp
 	if(isset($_POST['submit_upload'])){
-		$check = getimagesize($_FILES['image']['tmp_name']);
+		$check = getimagesize($_FILES['image']['tmp_name']); //Lấy kích thước của hình ảnh tmp_name ten tạm thời của tệp
 		if($check !== false){
 			$uploadOk = 1;
 		}else{
@@ -22,7 +22,7 @@
 		echo 'location.href="update_product.php";</script>';
 		$uploadOk = 0;
 	}
-	if($_FILES["image"]["size"] > 3000000){
+	if($_FILES["image"]["size"] > 3000000){ 
 		echo '<script language="javascript">alert("Sorry, your file is too large.");';
 		echo 'location.href="update_product.php";</script>';
 		$uploadOk = 0;
@@ -36,14 +36,13 @@
 		echo '<script language="javascript">alert("Sorry, your file was not uploaded.");';
 		echo 'location.href="update_product.php";</script>';
 	}else{
-		if(move_uploaded_file($_FILES['image']['tmp_name'], $target_file)){
+		if(move_uploaded_file($_FILES['image']['tmp_name'], $target_file)){ //Di chuyển tệp đã tải lên đến vị trí mới
 			//$link_image=var_dump($target_file);
 			$sql='select * from product where product_id = "'.$_POST['product_id'].'"';
 			$result=mysqli_query($con,$sql);
 			while ($row=mysqli_fetch_assoc($result)) {
 				if(file_exists($row['image_link'])) {
 					unlink($row['image_link']);
-					
 					$update='update product set image_link = "'.$target_file.'", image_name = "'.basename($_FILES['image']['name']).'" where product_id = "'.$_POST['product_id'].'"';
 					$result_update=mysqli_query($con,$update);
 					//$update2='update product set image_name = "'.basename($_FILES['image']['name']).'" where product_id = "'.$row['product_id'].'"';

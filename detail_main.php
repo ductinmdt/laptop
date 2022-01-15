@@ -63,9 +63,3 @@ if (mysqli_num_rows($result1) > 0) {
 }
 
 ?>
-<!--<select name="sl" style="border:#888 1px solid; border-radius: 5px; margin-left: 50px; padding:10px 5px; font-weight:bold; text-align:center;">
-									<option value="1" selected="selected">1</option>';
-									for ($i=2;$i<=10;$i++) {
-										echo '<option value="'.$i.'" >'.$i.'</option>';
-									}
-						echo '	</select>-->

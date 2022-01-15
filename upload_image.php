@@ -37,10 +37,6 @@
 			//$link_image=var_dump($target_file);
 			$update='update product set image_link = "'.$target_file.'", image_name = "'.basename($_FILES['image']['name']).'" where product_id = "'.$product_id.'"';
 			$result_update=mysqli_query($con,$update);
-			//$update2='update product set image_name = "'.basename($_FILES['image']['name']).'" where product_id = "'.$row['product_id'].'"';
-			//$result_update2=mysqli_query($con,$update2);
-			//echo 'The file '.basename($_FILES['image']['name']).' has been uploaded.';
-			//var_dump($update);exit;
 			echo '<script language="javascript">alert("The product has been uploaded.");';
 			echo 'location.href="list_product.php";</script>';
 		}else{

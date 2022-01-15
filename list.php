@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <?php include_once('head.php'); ?>
-
 <body>
 	<?php
 	if (!isset($_SESSION['user'])) {

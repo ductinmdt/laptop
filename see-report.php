@@ -13,8 +13,6 @@
 				</div>
 				<div class="col-md-10 col-8 ">
 					<div class="row">
-
-						
 							<?php
 							$user = $_SESSION['user'];
 							if ($user != 'admin') {
@@ -25,7 +23,6 @@
 								$id = $_GET['letter'];
 								$update = 'update detail_report set status = "1" where id = "' . $id . '"';
 								$result = mysqli_query($con, $update);
-
 								$sql = 'select * from detail_report,loai_chude where loai_chude.id=detail_report.id_chude and detail_report.id = "' . $id . '" ';
 								$kq = mysqli_query($con, $sql);
 

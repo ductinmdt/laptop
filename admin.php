@@ -10,12 +10,12 @@ $sql = 'select * from users where username like "' . $user . '" and password lik
 $result = mysqli_query($con, $sql);
 if (mysqli_num_rows($result)) {
 	while ($row = mysqli_fetch_assoc($result)) {
-		$user_id = $row['user_id'];
-		if ($user != 'admin') {
+		$level = $row['level'];
+		if ($level != '1') {
 			echo '<script language="javascript">alert("Bạn không đủ quyền để truy cập");';
 			echo 'location.href="home.php";</script>';
 		} else {
-			$select = 'select count(*) as sl from users';
+			$select = 'select count(*) as sl from users where level !=1';
 			$result2 = mysqli_query($con, $select);
 			$select2 = 'select count(*) as sl from product';
 			$result3 = mysqli_query($con, $select2);
@@ -23,18 +23,15 @@ if (mysqli_num_rows($result)) {
 			$result4 = mysqli_query($con, $select3);
 			$select4 = 'select count(*) as sl from transactions where process = "1"';
 			$result5 = mysqli_query($con, $select4);
-			while ($row1 = mysqli_fetch_assoc($result2)) {
-				while ($row2 = mysqli_fetch_assoc($result3)) {
-					while ($row3 = mysqli_fetch_assoc($result4)) {
-						while ($row4 = mysqli_fetch_assoc($result5)) {
-							$count_user = $row1['sl'] - 1;
-							$count_product = $row2['sl'];
-							$count_order_wait = $row3['sl'];
-							$count_order_finish = $row4['sl'];
-						}
-					}
-				}
-			}
+			$row1 = mysqli_fetch_assoc($result2);
+			$count_user = $row1['sl'];
+			$row2 = mysqli_fetch_assoc($result3);
+			$count_product = $row2['sl'];
+			$row3 = mysqli_fetch_assoc($result4);
+			$count_order_wait = $row3['sl'];
+			$row4 = mysqli_fetch_assoc($result5);
+			$count_order_finish = $row4['sl'];
+			
 			$count = 'select count(*) as sl from detail_report where status = "0"';
 			$kq = mysqli_query($con, $count);
 			while ($row5 = mysqli_fetch_assoc($kq)) {

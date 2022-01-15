@@ -6,9 +6,6 @@
 	<?php
 	if (!isset($_SESSION['user'])) {
 		unset($_SESSION['giohang']);
-		//$_SESSION['giohang'] = array();
-		//$_SESSION['giohang'][0]['id'] = '';
-		//$_SESSION['giohang'][0]['soluong'] = '';
 	} else {
 		if (isset($_GET['giohang'])) {
 			$id = $_GET['giohang'];

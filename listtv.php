@@ -23,7 +23,7 @@
 								echo '<script language="javascript">alert("Bạn không đủ quyền để truy cập");';
 								echo 'location.href="home.php";</script>';
 							} else {
-								$sql = 'select * from users where username != "admin"';
+								$sql = 'select * from users where level != 1';
 								$kq = mysqli_query($con, $sql);
 								echo '
 								<table class="table table-striped table-hover align-middle">

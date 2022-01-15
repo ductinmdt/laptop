@@ -1,7 +1,6 @@
 <div class="section">
 	<div class="container">
 		<div class="row ">
-
 			<?php
 			$sotin1trang = 12;
 			if (!isset($_GET['page']))

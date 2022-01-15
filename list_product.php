@@ -49,33 +49,33 @@
 									while ($row = mysqli_fetch_assoc($result)) {
 										$slton = $row['soluong'];
 										echo '<tr>
-								<th>' . $row['product_id'] . '</th>
-								<td>';
-										$sql2 = 'select * from catalogs where catalog_id = "' . $row['catalog_id'] . '"';
-										$result2 = mysqli_query($con, $sql2);
-										if ($row2 = mysqli_fetch_assoc($result2)) {
-											echo $row2['name'];
-										}
-										echo '</td>
-								<td>' . $row['name'] . '</td>
-								<td>' . $row['price'] . '₫</td>
-								<td>
-									<a href="detail.php?id=' . $row['product_id'] . '"><img  src="' . $row['image_link'] . '" alt="' . $row['image_name'] . '" height="100px" width="150px"/></a>
-								</td>
-								<td>
-									' . $slton . '
-								</td>
-								<td>
-									<a onclick="return ConfirmUpdate();" href="update_product.php?id=' . $row['product_id'] . '">
-										<input type="button" class="btn btn-danger" value="Update"/>
-									</a>
-									<a onclick="return ConfirmDelete();" href="delete_product.php?id=' . $row['product_id'] . '">
-										<input type="button" class="btn btn-warning" value="Delete"/>
-									</a>
-									
-								</td>
+											<th>' . $row['product_id'] . '</th>
+											<td>';
+													$sql2 = 'select * from catalogs where catalog_id = "' . $row['catalog_id'] . '"';
+													$result2 = mysqli_query($con, $sql2);
+													if ($row2 = mysqli_fetch_assoc($result2)) {
+														echo $row2['name'];
+													}
+													echo '</td>
+											<td>' . $row['name'] . '</td>
+											<td>' . $row['price'] . '₫</td>
+											<td>
+												<a href="detail.php?id=' . $row['product_id'] . '"><img  src="' . $row['image_link'] . '" alt="' . $row['image_name'] . '" height="100px" width="150px"/></a>
+											</td>
+											<td>
+												' . $slton . '
+											</td>
+											<td>
+												<a onclick="return ConfirmUpdate();" href="update_product.php?id=' . $row['product_id'] . '">
+													<input type="button" class="btn btn-danger" value="Update"/>
+												</a>
+												<a onclick="return ConfirmDelete();" href="delete_product.php?id=' . $row['product_id'] . '">
+													<input type="button" class="btn btn-warning" value="Delete"/>
+												</a>
+												
+											</td>
 								
-							</tr>';
+										</tr>';
 									}
 								}
 								echo '</table>';

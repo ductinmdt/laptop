@@ -5,8 +5,8 @@
 	$kq=mysqli_query($con,$sql);
 	if(mysqli_num_rows($kq)>0) {
 		while($row=mysqli_fetch_assoc($kq)) {
-			if(file_exists($row['image_link'])) {
-				unlink($row['image_link']);
+			if(file_exists($row['image_link'])) { //kiem tra file co ton tia hay k
+				unlink($row['image_link']);// xoa file
 				$delete = 'delete from product where product_id = "'.$id.'"';
 				//var_dump($select);exit;
 				$result=mysqli_query($con,$delete);
