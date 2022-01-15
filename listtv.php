@@ -32,7 +32,6 @@
 											<th>ID</th>
 											<th>Name</th>
 											<th>User</th>
-											<th>Password</th>
 											<th>Date Of Birth</th>
 											<th>Gender</th>
 											<th>Phone</th>
@@ -46,7 +45,6 @@
 														<th>' . $row['user_id'] . '</th>
 														<td>' . $row['name'] . '</td>
 														<td>' . $row['username'] . '</td>
-														<td>' . $row['password'] . '</td>
 														<td>' . $row['date_of_birth'] . '</td>
 														<td>' . $row['gender'] . '</td>
 														<td>' . $row['phone'] . '</td>

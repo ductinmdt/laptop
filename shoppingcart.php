@@ -39,7 +39,13 @@
 						$id = $_GET['plus'];
 						for ($i = 0; $i < count($_SESSION['giohang']); $i++) {
 							if ($_SESSION['giohang'][$i]['id'] == $id) {
-								$_SESSION['giohang'][$i]['soluong'] = $_SESSION['giohang'][$i]['soluong'] + 1;
+								$maxsl = 'select soluong from product where product_id = "' . $id . '"';
+								$resultmaxsl = mysqli_query($con, $maxsl);
+								$rowmaxsl = mysqli_fetch_array($resultmaxsl);
+								if($_SESSION['giohang'][$i]['soluong'] < $rowmaxsl['soluong']){
+									$_SESSION['giohang'][$i]['soluong'] = $_SESSION['giohang'][$i]['soluong'] + 1;
+								}
+								
 								//$_SESSION['giohang'][$i]['soluong'] = $_SESSION['soluong'];
 
 							}
