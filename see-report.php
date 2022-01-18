@@ -25,7 +25,6 @@
 								$result = mysqli_query($con, $update);
 								$sql = 'select * from detail_report,loai_chude where loai_chude.id=detail_report.id_chude and detail_report.id = "' . $id . '" ';
 								$kq = mysqli_query($con, $sql);
-
 								if (mysqli_num_rows($kq) > 0) {
 									while ($row = mysqli_fetch_assoc($kq)) {
 										$name = $row['name'];

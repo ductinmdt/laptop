@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<?php include_once('head.php');?>
+<?php include_once('head.php'); ?>
+
 <body>
 	<?php include_once('banner.php'); ?>
 	<div class="section section-cart pd-top-20 bg-color-brown">
@@ -28,7 +29,7 @@
 						$id = $_GET['minus'];
 						for ($i = 0; $i < count($_SESSION['giohang']); $i++) {
 							if ($_SESSION['giohang'][$i]['id'] == $id) {
-								if($_SESSION['giohang'][$i]['soluong'] != 1){
+								if ($_SESSION['giohang'][$i]['soluong'] != 1) {
 									$_SESSION['giohang'][$i]['soluong'] = $_SESSION['giohang'][$i]['soluong'] - 1;
 									//$_SESSION['giohang'][$i]['soluong'] = $_SESSION['soluong'];
 								}
@@ -42,10 +43,10 @@
 								$maxsl = 'select soluong from product where product_id = "' . $id . '"';
 								$resultmaxsl = mysqli_query($con, $maxsl);
 								$rowmaxsl = mysqli_fetch_array($resultmaxsl);
-								if($_SESSION['giohang'][$i]['soluong'] < $rowmaxsl['soluong']){
+								if ($_SESSION['giohang'][$i]['soluong'] < $rowmaxsl['soluong']) {
 									$_SESSION['giohang'][$i]['soluong'] = $_SESSION['giohang'][$i]['soluong'] + 1;
 								}
-								
+
 								//$_SESSION['giohang'][$i]['soluong'] = $_SESSION['soluong'];
 
 							}
@@ -70,7 +71,7 @@
 						$result = mysqli_query($con, $select);
 						if (mysqli_num_rows($result) > 0) {
 							while ($row = mysqli_fetch_array($result)) {
-								?>
+			?>
 								<div class="row align-items-center justify-content-center">
 									<div class="col-12 flex-column-1 items-cart mg-bottom-20 bd-rd-5">
 										<table class="align-middle">
@@ -89,20 +90,26 @@
 													</th>
 													<th class="text-center">
 														<a href="?minus=<?php echo $_SESSION['giohang'][$i]['id']; ?>">
-														<i class="bi bi-dash"></i>
+															<i class="bi bi-dash"></i>
 														</a>
 														<input style="text-align: center;" readonly="readonly" type="text" name="sl" value="<?php echo $_SESSION['giohang'][$i]['soluong']; ?>" size="1" />
 														<a href="?plus=<?php echo $_SESSION['giohang'][$i]['id']; ?>">
 															<i class="bi bi-plus"></i>
 														</a>
 													</th>
-
+													<th>
+														<a onclick="return ConfirmDelete();" href="del-cart.php?stt=<?php echo $i ?>">
+															<button type="button" class="btn btn-danger">
+																<i class="bi bi-trash delete-cart "></i>
+															</button>
+														</a>
+													</th>
 												</tr>
 											</tbody>
 										</table>
 									</div>
 								</div>
-								<?php
+			<?php
 							}
 						}
 					}
@@ -138,10 +145,6 @@
 									<a onclick="return ConfirmOrder();">
 										<input class="btn muahang" type="submit" name="order" value="Mua hàng"/>
 									</a>
-									<a onclick="return ConfirmDelete();" href = "del-cart.php">
-										<input type="button" class="btn muahang delete-cart" value="Xóa" />
-									</a>
-									
 								</div>
 								
 							</div>';

@@ -24,6 +24,6 @@
 		$result1=mysqli_query($con,$update1);
 		$update2='update detail_product set product_id = "'.$id.'", kichthuoc = "'.$size.'", trongluong = "'.$weight.'", manhinh = "'.$display.'", ram = "'.$ram.'", ocung = "'.$rom.'", pin = "'.$pin.'", webcam = "'.$cam.'", loa = "'.$loa.'", baohanh = "'.$bh.'", HDH = "'.$os.'", diaquang = "'.$cd.'", cong = "'.$port.'", dohoa = "'.$cart.'"';
 		echo '<script language="javascript">alert("The Product has been updated.");';
-		echo 'location.href="detail.php?id='.$id.'";</script>';
+		echo 'location.href="update_product.php?id='.$id.'";</script>';
 	}	
 ?>

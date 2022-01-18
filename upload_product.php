@@ -28,6 +28,10 @@
 			echo '<script language="javascript">alert("Vui lòng nhập đầy đủ thông tin!");'; 
 			echo 'location.href="add_product.php";</script>';
 		}
+		elseif($price <= 0 || $sl <= 0){
+			echo '<script language="javascript">alert("Vui lòng nhập số lượng và giá lớn hơn 0 !");'; 
+			echo 'location.href="add_product.php";</script>';
+		}
 		else {
 			$select1='select * from catalogs where name like "'.$catalog.'"';
 			$result_select1=mysqli_query($con,$select1);

@@ -4,6 +4,7 @@
 
 <body>
 	<?php
+	include_once('conn.php');
 	if (!isset($_SESSION['user'])) {
 		unset($_SESSION['giohang']);
 	} else {
@@ -14,14 +15,24 @@
 				$flag = false;
 				for ($i = 0; $i < $count; $i++) {
 					if ($_SESSION['giohang'][$i]['id'] == $id) {
-						$_SESSION['giohang'][$i]['soluong'] += 1;
+						$maxsl = 'select soluong from product where product_id = "' . $id . '"';
+						$resultmaxsl = mysqli_query($con, $maxsl);
+						$rowmaxsl = mysqli_fetch_array($resultmaxsl);
+						if ($_SESSION['giohang'][$i]['soluong'] < $rowmaxsl['soluong']) {
+							$_SESSION['giohang'][$i]['soluong'] = $_SESSION['giohang'][$i]['soluong'] + 1;
+						}
 						$flag = true;
 						break;
 					}
 				}
 				if ($flag == false) {
-					$_SESSION['giohang'][$count]['id'] = $id;
-					$_SESSION['giohang'][$count]['soluong'] = 1;
+					$sl0 = 'select soluong from product where product_id = "' . $id . '"';
+					$rssl0 = mysqli_query($con, $sl0);
+					$rowsl = mysqli_fetch_array($rssl0);
+					if($rowsl['soluong'] != 0) {
+						$_SESSION['giohang'][$count]['id'] = $id;
+						$_SESSION['giohang'][$count]['soluong'] = 1;
+					}
 				}
 			} else {
 				$_SESSION['giohang'] = array();
